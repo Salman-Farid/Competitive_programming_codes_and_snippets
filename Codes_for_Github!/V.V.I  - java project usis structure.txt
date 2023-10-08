@@ -1,0 +1,521 @@
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Person {
+    private final String name;
+    private final String email;
+
+    public Person(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+}
+
+class Faculty extends Person {
+    private final String password;
+
+    public Faculty(String name, String email, String password) {
+        super(name, email);
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
+
+class Student extends Person {
+    private final String studentID;
+    private final String department;
+    private final String password;
+    private int section;
+
+    public Student(String name, String studentID, String email, String department, String password) {
+        super(name, email);
+        this.studentID = studentID;
+        this.department = department;
+        this.password = password;
+        this.section = -1;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getSection() {
+        return section;
+    }
+
+    public void setSection(int section) {
+        this.section = section;
+    }
+}
+
+class Section {
+    private final int sectionNumber;
+    private final String day;
+    private final String startTime;
+    private final String endTime;
+    private final int maxSeats;
+    private int remainingSeats;
+    private final List<Student> enrolledStudents;
+
+    public Section(int sectionNumber, String day, String startTime, String endTime, int maxSeats) {
+        this.sectionNumber = sectionNumber;
+        this.day = day;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.maxSeats = maxSeats;
+        this.remainingSeats = maxSeats;
+        this.enrolledStudents = new ArrayList<>();
+    }
+
+    public int getSectionNumber() {
+        return sectionNumber;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public int getRemainingSeats() {
+        return remainingSeats;
+    }
+
+    public void enrollStudent(Student student) {
+        enrolledStudents.add(student);
+        remainingSeats--;
+    }
+
+    public void updateRemainingSeats(Connection connection) {
+        try {
+            String query = "SELECT COUNT(*) FROM students WHERE section = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, sectionNumber);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int enrolledCount = resultSet.getInt(1);
+                remainingSeats = maxSeats - enrolledCount;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching remaining seats from the database: " + e.getMessage());
+        }
+    }
+
+    public void printEnrolledStudents() {
+        System.out.println("Enrolled students in Section " + sectionNumber + ":");
+        System.out.println("+----------------------+");
+        System.out.printf("|%5s|%2s|\n", "Name", "SID");
+        System.out.println("+----------------------+");
+        for (Student student : enrolledStudents) {
+            System.out.printf("|%5s|%s|\n", student.getName(), student.getStudentID());
+        }
+        System.out.println("+----------------------+");
+        System.out.println(remainingSeats + " Seats Remaining");
+    }
+}
+
+class Program {
+    private final List<Student> students;
+    private final List<Section> sections;
+    private final List<Faculty> faculties;
+    private final Scanner scanner;
+    private Connection connection;
+    private Faculty loggedInFaculty;
+
+    public Program() {
+        students = new ArrayList<>();
+        sections = new ArrayList<>();
+        faculties = new ArrayList<>();
+        scanner = new Scanner(System.in);
+        connection = null;
+        loggedInFaculty = null;
+    }
+
+    public void connectToDatabase() {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lab02", "root", "2020");
+            System.out.println("Connected to the database.");
+        } catch (SQLException e) {
+            System.err.println("Database connection error: " + e.getMessage());
+        }
+    }
+
+    public void closeDatabaseConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+                System.out.println("Database connection closed.");
+            } catch (SQLException e) {
+                System.err.println("Error while closing database connection: " + e.getMessage());
+            }
+        }
+    }
+
+    public void registerStudent() {
+        System.out.println("Registration:");
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("SID: ");
+        String sid = scanner.nextLine();
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        // Check if student with the same name, ID, or email already exists
+        for (Student student : students) {
+            if (student.getName().equals(name) || student.getStudentID().equals(sid)
+                    || student.getEmail().equals(email)) {
+                System.out.println("Already registered! Please login!");
+                return;
+            }
+        }
+
+        // Check if student with the same name, ID, or email already exists in the
+        // database
+        try {
+            String query = "SELECT * FROM students WHERE name = ? OR sid = ? OR email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, sid);
+            preparedStatement.setString(3, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                System.out.println("Already registered! Please login!");
+                return;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error checking student registration in the database: " + e.getMessage());
+            return;
+        }
+
+        // Continue with student registration
+        System.out.print("Department: ");
+        String department = scanner.nextLine();
+
+        Student newStudent = new Student(name, sid, email, department, password);
+        students.add(newStudent);
+        System.out.println("Registration Successful!");
+
+        // Insert student data into the database
+        try {
+            String query = "INSERT INTO students (name, sid, email, password, department) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, sid);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, password);
+            preparedStatement.setString(5, department);
+            preparedStatement.executeUpdate();
+            System.out.println("Student data inserted into the database.");
+        } catch (SQLException e) {
+            System.err.println("Error inserting student data into the database: " + e.getMessage());
+        }
+    }
+
+    public void registerFaculty() {
+        System.out.println("Faculty Registration:");
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        try {
+            String query = "SELECT * FROM faculties WHERE email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                System.out.println("Faculty already registered! Please login!");
+                return;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error checking faculty registration in the database: " + e.getMessage());
+            return;
+        }
+
+        Faculty newFaculty = new Faculty(name, email, password);
+        faculties.add(newFaculty);
+        System.out.println("Registration Successful!");
+
+        try {
+            String query = "INSERT INTO faculties (name, email, password) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, password);
+            preparedStatement.executeUpdate();
+            System.out.println("Faculty data inserted into the database.");
+        } catch (SQLException e) {
+            System.err.println("Error inserting faculty data into the database: " + e.getMessage());
+        }
+    }
+
+    public void facultyLogin() {
+        System.out.println("Please Faculty Login Here:-");
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        for (Faculty faculty : faculties) {
+            if (faculty.getName().equals(name) && faculty.getPassword().equals(password)) {
+                loggedInFaculty = faculty;
+                System.out.println("Login Successful!");
+                return;
+            }
+        }
+
+        try {
+            String query = "SELECT * FROM faculties WHERE name = ? AND password = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                loggedInFaculty = new Faculty(name, resultSet.getString("email"), password);
+                System.out.println("Login Successful!");
+                return;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error checking faculty login in the database: " + e.getMessage());
+            return;
+        }
+
+        System.out.println("Invalid name or password. Please try again.");
+        facultyLogin();
+    }
+
+    public void login() {
+        System.out.println("Please Login Here:-");
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        Student loggedInStudent = null;
+
+        try {
+            String query = "SELECT * FROM students WHERE email = ? AND password = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String sid = resultSet.getString("sid");
+                String department = resultSet.getString("department");
+                int section = resultSet.getInt("section");
+
+                loggedInStudent = new Student(name, sid, email, department, password);
+                loggedInStudent.setSection(section);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error checking student login in the database: " + e.getMessage());
+            return;
+        }
+
+        if (loggedInStudent != null) {
+            System.out.println("Login Successful!");
+
+            if (loggedInStudent.getSection() == 0) {
+                showSectionOptions(loggedInStudent);
+            } else {
+                System.out.println("Student Information:");
+                System.out.println("Name: " + loggedInStudent.getName());
+                System.out.println("Email: " + loggedInStudent.getEmail());
+                System.out.println("SID: " + loggedInStudent.getStudentID());
+                System.out.println("Department: " + loggedInStudent.getDepartment());
+                System.out.println("Chosen Section: " + loggedInStudent.getSection());
+            }
+        } else {
+            System.out.println("Invalid email or password. Please try again.");
+            login();
+        }
+    }
+
+    public boolean isFacultyLoggedIn() {
+        return loggedInFaculty != null;
+    }
+
+    public void showSectionOptions(Student student) {
+        System.out.println("Available Sections:");
+        System.out.println("+------------------------+");
+        System.out.printf("|%-2s|%-2s|%-2s|\n", "Section", "Day", "Time");
+        System.out.println("+------------------------+");
+        for (Section section : sections) {
+            System.out.printf("|%-2d|%-2s|%-2s|\n", section.getSectionNumber(), section.getDay(),
+                    section.getStartTime() + " - " + section.getEndTime());
+        }
+        System.out.println("+------------------------+");
+
+        System.out.print("Choose a section (1-" + sections.size() + "): ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choice >= 1 && choice <= sections.size()) {
+            Section selectedSection = sections.get(choice - 1);
+            if (selectedSection.getRemainingSeats() > 0) {
+                selectedSection.enrollStudent(student);
+                student.setSection(selectedSection.getSectionNumber());
+                System.out.println("Enrollment Successful!");
+
+                try {
+                    String query = "UPDATE students SET section = ? WHERE email = ?";
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setInt(1, student.getSection());
+                    preparedStatement.setString(2, student.getEmail());
+                    preparedStatement.executeUpdate();
+                    System.out.println("Chosen section updated in the database.");
+                } catch (SQLException e) {
+                    System.err.println("Error updating chosen section in the database: " + e.getMessage());
+                }
+
+                return;
+            }
+        }
+        System.out.println("Selected section is full. Please choose another section.");
+        showSectionOptions(student);
+    }
+
+    public void printEnrolledStudentsInSection() {
+        if (!isFacultyLoggedIn()) {
+            System.out.println("Access denied. Please login as faculty.");
+            return;
+        }
+
+        System.out.print("Choose a section to view enrolled students: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choice >= 1 && choice <= sections.size()) {
+            Section selectedSection = sections.get(choice - 1);
+            selectedSection.printEnrolledStudents();
+
+            try {
+                String query = "SELECT * FROM students WHERE section = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, selectedSection.getSectionNumber());
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                System.out.println("Enrolled students in Section " + selectedSection.getSectionNumber() + ":");
+                System.out.println("+----------------------+");
+                System.out.printf("|%10s|%5s|\n", "Name", "SID");
+                System.out.println("+----------------------+");
+
+                while (resultSet.next()) {
+                    String name = resultSet.getString("name");
+                    String sid = resultSet.getString("sid");
+
+                    System.out.printf("|%10s|%5s|\n", name, sid);
+                }
+
+                System.out.println("+----------------------+");
+                System.out.println(selectedSection.getRemainingSeats() + " Seats Remaining");
+            } catch (SQLException e) {
+                System.err.println("Error fetching enrolled students from the database: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Invalid section choice.");
+        }
+    }
+
+    public void initializeSections() {
+        Section section1 = new Section(1, "Sunday", "12:30 pm", "1:00 pm", 11);
+        Section section2 = new Section(2, "Saturday", "2:30 pm", "4:00 pm", 9);
+
+        sections.add(section1);
+        sections.add(section2);
+
+        // Update remaining seats for each section from the database
+        for (Section section : sections) {
+            section.updateRemainingSeats(connection);
+        }
+    }
+
+    public void start() {
+        connectToDatabase();
+        initializeSections();
+
+        while (true) {
+            System.out.println("+--------------------------------------+ ");
+            System.out.println("|                Usis                   |");
+            System.out.println("+--------------------------------------+ ");
+            System.out.println("| 1. Register Student                   |");
+            System.out.println("| 2. Login Student                      |");
+            System.out.println("| 3. Register Faculty                   |");
+            System.out.println("| 4. Login Faculty                      |");
+            System.out.println("| 5. View Enrolled Students in a Section|");
+            System.out.println("| 6. Exit                               |");
+            System.out.println("+--------------------------------------+ ");
+            System.out.print("Enter your choice (1-6): ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    registerStudent();
+                    break;
+                case 2:
+                    login();
+                    break;
+                case 3:
+                    registerFaculty();
+                    break;
+                case 4:
+                    facultyLogin();
+                    break;
+                case 5:
+                    printEnrolledStudentsInSection();
+                    break;
+                case 6:
+                    closeDatabaseConnection();
+                    System.out.println("Exiting program...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Program program = new Program();
+        program.start();
+    }
+}

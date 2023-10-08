@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class student
+{
+private:
+    int a, b, c;
+
+public:
+    int d, e;
+    void setdata(int a1, int b1, int c1);
+    void getdata()
+    {
+        cout << "The birthdate of the student: " << a<<endl;
+        cout << "The birthdat month of the student: " << b<<endl;
+        cout << "The birth year of the student:  " << c<<endl;
+        cout << "The real age of the student: " << d<<endl;
+        cout << "The expected sallary of the student per month:  " << e<<endl;
+    }
+};
+void student:: setdata(int a1, int b1, int c1){
+    a=a1;
+    b=b1;
+    c=c1;
+    
+}
+int main()
+{
+    student salman;
+    salman.d= 26;
+    salman.e= 500000000;
+    salman.setdata(16,10,1999);
+    salman.getdata();
+    return 0;
+
+
+}

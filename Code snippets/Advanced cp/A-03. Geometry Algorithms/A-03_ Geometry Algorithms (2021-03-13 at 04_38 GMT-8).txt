@@ -1,0 +1,15 @@
+01:17:01.768,01:17:04.768
+MOHAMMAD YASIN AREFIN: convex hull e minimum distance duita point kivabe kora jay?
+
+01:19:39.755,01:19:42.755
+MOHAMMAD YASIN AREFIN: convex hull er points deya ase. Setay minimum distance points ber korte chai
+
+01:20:12.050,01:20:15.050
+MOHAMMAD YASIN AREFIN: Sorry. 
+
+01:21:50.279,01:21:53.279
+MOHAMMAD YASIN AREFIN: https://algo.codemarshal.org/contests/uits_iupc_19/problems/H
+
+01:23:49.124,01:23:52.124
+MOHAMMAD YASIN AREFIN: mane ekta side er parallel hobe always?
+

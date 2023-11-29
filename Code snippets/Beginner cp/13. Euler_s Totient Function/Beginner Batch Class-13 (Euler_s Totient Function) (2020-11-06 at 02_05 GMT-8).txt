@@ -1,0 +1,63 @@
+00:04:47.963,00:04:50.963
+AREF AHMED: 6? 
+
+00:12:04.977,00:12:07.977
+Mehedi Hasan Emo: 23
+
+00:12:25.331,00:12:28.331
+Mehedi Hasan Emo: ji
+
+00:15:25.668,00:15:28.668
+AREF AHMED: 9?
+
+00:15:35.463,00:15:38.463
+Andalib Rahman Shagoto: 18
+
+00:15:38.080,00:15:41.080
+AREF AHMED: bad jabe ??
+
+00:15:38.282,00:15:41.282
+Mehedi Hasan Emo: 18
+
+00:15:39.232,00:15:42.232
+NIRJHOR DATTA: 18
+
+00:32:57.609,00:33:00.609
+AREF AHMED: 1/p1 = 0 dei na ?
+
+00:33:07.655,00:33:10.655
+AREF AHMED: cpp te??
+
+00:35:06.450,00:35:09.450
+AREF AHMED: ok bujechi
+
+00:51:11.113,00:51:14.113
+AREF AHMED: phi of b ??
+
+01:02:53.602,01:02:56.602
+NIRJHOR DATTA: 24
+
+01:02:53.838,01:02:56.838
+AREF AHMED: phi(24)b?
+
+01:02:54.655,01:02:57.655
+Mehedi Hasan Emo: phi (144/6)
+
+01:14:12.054,01:14:15.054
+AREF AHMED: 22+13 ?
+
+01:14:19.265,01:14:22.265
+Mehedi Hasan Emo: 34
+
+01:17:00.959,01:17:03.959
+AREF AHMED: mod out ??
+
+01:21:23.001,01:21:26.001
+AREF AHMED: a^b^c^d hoileo same process ??
+
+01:23:32.408,01:23:35.408
+Sabbir Rahman: https://cses.fi/problemset/task/1712
+
+01:25:39.367,01:25:42.367
+Sabbir Rahman: https://cp-algorithms.com/algebra/phi-function.html
+

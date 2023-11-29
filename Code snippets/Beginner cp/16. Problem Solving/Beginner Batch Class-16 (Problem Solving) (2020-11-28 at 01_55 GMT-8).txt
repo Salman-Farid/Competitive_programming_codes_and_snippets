@@ -1,0 +1,132 @@
+00:10:17.477,00:10:20.477
+Sabbir Rahman: https://codeforces.com/contest/1454
+
+00:10:57.875,00:11:00.875
+Sabbir Rahman: https://codeforces.com/contest/1454/problem/A
+
+00:13:18.636,00:13:21.636
+MOHAMMAD YASIN AREFIN: print n , 1....n-1
+
+00:13:49.446,00:13:52.446
+MOHAMMAD YASIN AREFIN: odd e problem hobe
+
+00:18:10.904,00:18:13.904
+Sabbir Rahman: https://codeforces.com/contest/1454/problem/B
+
+00:20:34.348,00:20:37.348
+Mehedi Hasan Emo: array re count rekhe
+
+00:20:38.795,00:20:41.795
+Andalib Rahman Shagoto: minimum unique number count 1 hoile
+
+00:20:39.437,00:20:42.437
+Mehedi Hasan Emo: #te 
+
+00:22:34.252,00:22:37.252
+Syed Aref Ahmed: map ??
+
+00:28:29.445,00:28:32.445
+Mehedi Hasan Emo: -1 print er kaj te?
+
+00:28:55.227,00:28:58.227
+Andalib Rahman Shagoto: count 1 na hoile
+
+00:29:01.320,00:29:04.320
+Mehedi Hasan Emo: kunu count jokhn 1 thakbe na
+
+00:30:41.609,00:30:44.609
+Mehedi Hasan Emo: ji
+
+00:30:45.317,00:30:48.317
+Mehedi Hasan Emo: na
+
+00:30:49.499,00:30:52.499
+Syed Aref Ahmed: haae
+
+00:31:02.016,00:31:05.016
+Sabbir Rahman: https://codeforces.com/contest/1454/problem/C
+
+00:35:10.489,00:35:13.489
+Syed Aref Ahmed: x = 3 ??
+
+00:35:18.547,00:35:21.547
+MOHAMMAD YASIN AREFIN: 3
+
+00:38:08.259,00:38:11.259
+Mehedi Hasan Emo: jei value er occurance sob cheye kom
+
+00:38:21.152,00:38:24.152
+Mehedi Hasan Emo: ?
+
+00:39:33.460,00:39:36.460
+Syed Aref Ahmed: consecutive equal element bad die count korle ??
+
+00:44:49.773,00:44:52.773
+Mehedi Hasan Emo: ji
+
+00:44:51.817,00:44:54.817
+Andalib Rahman Shagoto: ji
+
+00:45:42.108,00:45:45.108
+Mehedi Hasan Emo: index-0 er jonno i-1 kaj korbe?
+
+00:45:43.637,00:45:46.637
+Syed Aref Ahmed: i = 1 theke na ?
+
+00:49:10.415,00:49:13.415
+MOHAMMAD YASIN AREFIN: x .... x
+
+00:49:11.867,00:49:14.867
+Syed Aref Ahmed: first e
+
+00:49:15.218,00:49:18.218
+Andalib Rahman Shagoto: shob same
+
+00:49:16.098,00:49:19.098
+Syed Aref Ahmed: last e
+
+00:58:43.611,00:58:46.611
+Sabbir Rahman: https://codeforces.com/contest/1454/problem/D
+
+00:58:50.316,00:58:53.316
+Syed Aref Ahmed: no
+
+00:58:51.820,00:58:54.820
+Mehedi Hasan Emo: nah 
+
+00:58:51.843,00:58:54.843
+Andalib Rahman Shagoto: na
+
+01:05:44.604,01:05:47.604
+MOHAMMAD YASIN AREFIN: 2 % 3 != 0
+
+01:05:44.647,01:05:47.647
+Syed Aref Ahmed: 15 divisible na
+
+01:05:46.969,01:05:49.969
+Syed Aref Ahmed: 2 die
+
+01:09:30.777,01:09:33.777
+MOHAMMAD YASIN AREFIN: 4
+
+01:09:33.100,01:09:36.100
+Syed Aref Ahmed: 4
+
+01:09:42.021,01:09:45.021
+MOHAMMAD YASIN AREFIN: maximum occurring factor
+
+01:11:36.651,01:11:39.651
+Syed Aref Ahmed: 2 2 (2*3*3*5)
+
+01:11:38.837,01:11:41.837
+MOHAMMAD YASIN AREFIN: 2 2 90
+
+01:11:39.358,01:11:42.358
+Andalib Rahman Shagoto: 2 2 (2*3*3*5)
+
+01:11:40.619,01:11:43.619
+Mehedi Hasan Emo: length: 4    sequence: 2 2 2 90
+
+01:11:44.184,01:11:47.184
+Syed Aref Ahmed: length 3
+

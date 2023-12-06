@@ -54,3 +54,23 @@ int main()
 //      cout<<l<<endl;
 // }
 	    	 	 		  	  	 			 	 				
+
+
+//option : 4
+// And be patient. Allah will not waste the reward of the virtuous.
+// #include<bits/stdc++.h>
+//  using namespace std;
+//  int main(){
+//      string r;cin>>r;string l;
+//      for(int i=0;i<r.size();i++)
+// 	 {
+//         if(r.substr(i,3)=="WUB")
+// 		{
+//             i+=2;
+//             if(!l.empty() && l.back()!=' ') l += ' ';
+//         } 
+// 		else l+=r[i];
+//      }
+//      cout<<l<<endl;
+// }
+	    	 	 		  	  	 			 	 				

@@ -1,18 +1,15 @@
 // And be patient. Allah will not waste the reward of the virtuous.
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    // Input word with "WUB"
-    string bigWord; cin >> bigWord;
-    string toErase = "WUB";
-    size_t pos = bigWord.find(toErase);
-    while (pos != string::npos) {
-        bigWord.replace(pos, toErase.length(), " ");
-        pos = bigWord.find(toErase);
+int main()
+{
+    string s,e = "WUB";getline(cin,s);
+    int q = s.find(e);
+    while (q != -1){
+        s.replace(q,e.length()," ");
+        q=s.find(e);
     }
-    cout << bigWord << endl;
+    cout<<s<<endl;
 }
 
 

@@ -18,6 +18,8 @@ public:
     }
 };
 
+
+
 //option : 2
 // And be patient. Allah will not waste the reward of the virtuous.
 // #include <vector>
@@ -44,6 +46,8 @@ public:
 //         return {output[0],output[1]};
 //     }
 // };
+
+
 
 //most optimized way:
 // class Solution {

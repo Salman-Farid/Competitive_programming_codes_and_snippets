@@ -44,3 +44,46 @@ public:
 //         return true; // Palindrome
 //     }
 // };
+
+
+
+
+
+// For Practice:
+// #include <iostream>
+// using namespace std;
+
+// class Solution {
+// public:
+//     bool isPalindrome(int x) {
+//         if (x < 0) {
+//             return false; // Negative numbers are not palindromic
+//         }
+
+// Reverse the integer
+//         long long reversed = 0;
+//         int original = x;
+
+//         while (x > 0) {
+//             int digit = x % 10;
+//             reversed = reversed * 10LL + digit;  // Use long long for multiplication
+//             x /= 10;
+//         }
+
+// Check if the reversed integer is the same as the original
+//         return reversed == original;
+//     }
+// };
+
+// int main() {
+//     Solution solution;
+
+// Example usage
+//     int number = 121;
+//     bool result = solution.isPalindrome(number);
+
+//     cout << "Is " << number << " a palindrome? " << (result ? "Yes" : "No") << endl;
+
+//     return 0;
+// }
+

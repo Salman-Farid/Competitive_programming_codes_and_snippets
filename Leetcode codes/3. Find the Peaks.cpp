@@ -1,5 +1,6 @@
 //https://leetcode.com/problems/find-the-peaks/description/
-// option: 1
+
+
 class Solution
 {
 public:

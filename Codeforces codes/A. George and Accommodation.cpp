@@ -7,7 +7,7 @@ int main()
     int n,a,b,c=0;cin >> n;
     while(n--){
         cin >>a>>b;
-        if(a<b) c++;
+        if(a<b-1) c++;
     }
     cout<<c;
 }

@@ -10,3 +10,17 @@ int main()
     for (int j = 0; j < 2; j++) c+= (arr[j+1] - arr[j]);
     cout<<c;
 }
+
+//Option:2
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int arr[3],c=0,p=0,q=INT_MAX;
+//     for (int i = 0; i < 3; i++){
+//         cin >> arr[i];
+//         if (arr[i]>p) p=arr[i];
+//         if (arr[i]<q) q=arr[i];
+//     } 
+//     cout<<p-q;
+// }

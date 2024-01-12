@@ -5,7 +5,6 @@ using namespace std;
 int main()
 {
     string n;cin >> n; int ans = 0;
-    for (char a : n)
-        if (a == '4' || a == '7') ans++;
+    for (char a : n) if (a == '4' || a == '7') ans++;
     cout << ((ans == 4 || ans == 7) ? "YES" : "NO");
 }

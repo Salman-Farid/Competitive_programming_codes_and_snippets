@@ -1,0 +1,60 @@
+00:12:28.596,00:12:31.596
+MOHAMMAD YASIN AREFIN: E
+
+00:12:30.225,00:12:33.225
+Mehedi Hasan Emo: E
+
+00:12:47.589,00:12:50.589
+MOHAMMAD YASIN AREFIN: D
+
+00:12:56.850,00:12:59.850
+Mehedi Hasan Emo: D F C B
+
+00:12:57.602,00:13:00.602
+Andalib Rahman Shagoto: d, f, c, b
+
+00:34:20.400,00:34:23.400
+Mehedi Hasan Emo: base case
+
+00:34:20.683,00:34:23.683
+Syed Aref Ahmed: end condition
+
+00:42:53.946,00:42:56.946
+Mehedi Hasan Emo: complexity?
+
+00:44:35.065,00:44:38.065
+Syed Aref Ahmed: shob recursion e ki reset kora dorkar ??
+
+00:45:56.493,00:45:59.493
+Syed Aref Ahmed: ji
+
+00:59:26.145,00:59:29.145
+Syed Aref Ahmed: element change hoise ki na??
+
+01:08:12.654,01:08:15.654
+Syed Aref Ahmed: i<=pos?
+
+01:13:28.915,01:13:31.915
+MOHAMMAD YASIN AREFIN: map diye ?
+
+01:15:14.995,01:15:17.995
+MOHAMMAD YASIN AREFIN: false korte hobe
+
+01:23:18.277,01:23:21.277
+Mehedi Hasan Emo: ji
+
+01:23:18.790,01:23:21.790
+Syed Aref Ahmed: majher ta?
+
+01:37:15.371,01:37:18.371
+ABU DARDA: graph shuru korle bhalo hoy
+
+01:37:30.030,01:37:33.030
+NIRJHOR DATTA: graph
+
+01:37:32.280,01:37:35.280
+Syed Aref Ahmed: ei week e contest ache ?
+
+01:38:28.363,01:38:31.363
+Mehedi Hasan Emo: slack a knk diyechilam ekta prb niye
+

@@ -1,0 +1,30 @@
+00:04:11.628,00:04:14.628
+Syed Aref Ahmed: [v][u] = true ?
+
+00:24:10.499,00:24:13.499
+Syed Aref Ahmed: no vaia
+
+00:31:12.920,00:31:15.920
+Syed Aref Ahmed: bujechi may be 
+
+00:35:25.365,00:35:28.365
+Syed Aref Ahmed: for loop joto bar cholbe ?
+
+00:41:28.914,00:41:31.914
+Syed Aref Ahmed:  i j er codition dite hobe ?
+
+00:53:43.132,00:53:46.132
+Syed Aref Ahmed: no vaia
+
+01:08:55.288,01:08:58.288
+Syed Aref Ahmed: 21 ar 22 line alter korle thenproblem hobe ?
+
+01:16:46.181,01:16:49.181
+Syed Aref Ahmed: dist[u] = 0 keno?
+
+01:17:21.010,01:17:24.010
+Syed Aref Ahmed: okay
+
+01:29:24.180,01:29:27.180
+Syed Aref Ahmed: no vaia
+

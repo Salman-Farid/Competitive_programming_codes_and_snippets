@@ -1,0 +1,90 @@
+00:03:39.431,00:03:42.431
+Mehedi Hasan Emo: each node dijkstra
+
+00:07:08.631,00:07:11.631
+Syed Aref Ahmed: eita just graph representation
+
+00:15:53.363,00:15:56.363
+Syed Aref Ahmed: noo vaia
+
+00:16:38.631,00:16:41.631
+Syed Aref Ahmed: shortest ta newa?
+
+00:19:50.972,00:19:53.972
+Syed Aref Ahmed: if(dist[u][v]==0)
+
+00:20:00.934,00:20:03.934
+NIRJHOR DATTA: min
+
+00:20:04.617,00:20:07.617
+Syed Aref Ahmed: 1e9
+
+00:28:37.588,00:28:40.588
+Mehedi Hasan Emo: cycle er sob gular value neg
+
+00:31:27.301,00:31:30.301
+Mehedi Hasan Emo: na
+
+00:34:59.888,00:35:02.888
+NIRJHOR DATTA: k
+
+00:40:30.699,00:40:33.699
+Mehedi Hasan Emo: connected, disconnected graph duita te ki same way te code kaj korbe?
+
+00:43:42.015,00:43:45.015
+Syed Aref Ahmed: parent die check kore ?
+
+00:43:46.791,00:43:49.791
+Mehedi Hasan Emo: matirx diye check korle e hobe
+
+00:43:57.160,00:44:00.160
+Syed Aref Ahmed: bfs/dfs
+
+00:49:14.719,00:49:17.719
+Mehedi Hasan Emo: master of a = d
+
+00:49:17.582,00:49:20.582
+Syed Aref Ahmed: master[a] = mster[d]
+
+00:49:41.815,00:49:44.815
+Syed Aref Ahmed: m[b] = m[c]
+
+01:03:53.256,01:03:56.256
+Mehedi Hasan Emo: 33
+
+01:06:25.149,01:06:28.149
+MD. SADMAN SAKIB: duita ki eksathe use kora hoy ? naki alada alada?
+
+01:13:37.281,01:13:40.281
+Syed Aref Ahmed: size update ?
+
+01:16:23.395,01:16:26.395
+MD. SADMAN SAKIB: size update er code ta explain koren arekbar vai
+
+01:17:32.579,01:17:35.579
+MD. SADMAN SAKIB: bujhte parsi vai
+
+01:19:34.438,01:19:37.438
+MD. SADMAN SAKIB: dsu er usage gula ki ki er baire?
+
+01:24:25.630,01:24:28.630
+Syed Aref Ahmed: 26c2
+
+01:24:43.941,01:24:46.941
+NIRJHOR DATTA: 26^7
+
+01:29:09.833,01:29:12.833
+Syed Aref Ahmed: jii
+
+01:29:17.797,01:29:20.797
+NIRJHOR DATTA: toph e sobgulo testcase dekha jai?
+
+01:29:28.160,01:29:31.160
+Andalib Rahman Shagoto: na
+
+01:30:02.697,01:30:05.697
+Sabbir Rahman: https://toph.co/p/nested-palindromes
+
+01:33:08.242,01:33:11.242
+Mehedi Hasan Emo: na
+

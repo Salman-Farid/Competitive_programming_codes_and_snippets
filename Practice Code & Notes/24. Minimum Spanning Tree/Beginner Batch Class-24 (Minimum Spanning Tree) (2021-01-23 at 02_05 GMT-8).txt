@@ -1,0 +1,87 @@
+00:00:33.857,00:00:36.857
+Andalib Rahman Shagoto: bhaiya kotha kete jacche
+
+00:00:45.840,00:00:48.840
+Mehedi Hasan Emo: kotha kete kete asche vhaia
+
+00:02:38.310,00:02:41.310
+Sabbir Rahman: accha amar mic e ektu somossa hocche
+
+00:02:40.761,00:02:43.761
+Sabbir Rahman: ami dekhchi
+
+00:07:40.368,00:07:43.368
+Mehedi Hasan Emo: AC 
+
+00:07:41.979,00:07:44.979
+Syed Aref Ahmed: no may be
+
+00:09:09.652,00:09:12.652
+ARYAN RAHMAN: 80
+
+00:09:10.892,00:09:13.892
+Mehedi Hasan Emo: 80 e min
+
+00:10:55.116,00:10:58.116
+Mehedi Hasan Emo: N ta node thakle N - 1 ta edge hobe aita e MST right?
+
+00:13:29.168,00:13:32.168
+ARYAN RAHMAN: no
+
+00:17:27.990,00:17:30.990
+Syed Aref Ahmed: e^2logv
+
+00:17:41.935,00:17:44.935
+ARYAN RAHMAN: ElogE + E
+
+00:27:31.166,00:27:34.166
+Mehedi Hasan Emo:  make_pair(a, b) c
+
+00:28:19.238,00:28:22.238
+Mehedi Hasan Emo: cost wise sort
+
+00:28:22.393,00:28:25.393
+Mehedi Hasan Emo: korte hobe
+
+00:28:29.258,00:28:32.258
+Syed Aref Ahmed: vertex wise sort hobe
+
+00:33:24.125,00:33:27.125
+Mehedi Hasan Emo: 1 2 2 bar
+
+00:34:50.479,00:34:53.479
+Syed Aref Ahmed: reverse sort ?
+
+00:34:56.031,00:34:59.031
+Mehedi Hasan Emo: sort ta change
+
+00:36:29.706,00:36:32.706
+Syed Aref Ahmed: graph completely connected na hole ?
+
+00:36:33.555,00:36:36.555
+ARYAN RAHMAN: disconnected components?
+
+00:37:11.603,00:37:14.603
+Syed Aref Ahmed: dsu again ?
+
+00:37:31.837,00:37:34.837
+Mehedi Hasan Emo: dfs
+
+00:37:33.324,00:37:36.324
+Syed Aref Ahmed: v-1 edges ?
+
+00:39:52.078,00:39:55.078
+Mehedi Hasan Emo: edge count rakha?
+
+01:00:52.477,01:00:55.477
+Mehedi Hasan Emo: completed[i] = false hobe na?
+
+01:01:04.130,01:01:07.130
+Mehedi Hasan Emo: line 10
+
+01:01:04.985,01:01:07.985
+Syed Aref Ahmed: 10 lie
+
+01:14:09.868,01:14:12.868
+Syed Aref Ahmed: ei week e contest ache?
+

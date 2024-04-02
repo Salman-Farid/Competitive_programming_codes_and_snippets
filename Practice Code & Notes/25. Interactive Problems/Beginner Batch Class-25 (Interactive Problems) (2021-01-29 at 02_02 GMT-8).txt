@@ -1,0 +1,9 @@
+00:05:20.511,00:05:23.511
+Sabbir Rahman: https://codeforces.com/blog/entry/45307
+
+00:07:38.399,00:07:41.399
+ABU DARDA: binary search
+
+00:08:36.177,00:08:39.177
+Syed Aref Ahmed: fast io
+
